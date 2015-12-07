@@ -175,10 +175,9 @@ ActiveRecord::Schema.define(version: 20160107182050) do
     t.boolean  "needs_review"
   end
 
-<<<<<<< 005d429bf5d743fe48d4c42999357d4f9fbac7ce
   add_index "submissions", ["code_review_id"], name: "index_submissions_on_code_review_id", using: :btree
   add_index "submissions", ["student_id"], name: "index_submissions_on_student_id", using: :btree
-=======
+
   create_table "tickets", force: :cascade do |t|
     t.integer  "course_id"
     t.string   "student_names"
@@ -191,7 +190,6 @@ ActiveRecord::Schema.define(version: 20160107182050) do
   end
 
   add_index "tickets", ["deleted_at"], name: "index_tickets_on_deleted_at", using: :btree
->>>>>>> add parnanoia gem, tickets table, and migrate db
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                     limit: 255, default: "", null: false
