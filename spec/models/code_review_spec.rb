@@ -28,8 +28,7 @@ describe CodeReview do
   it 'prevents code review deletion when submissions exist' do
     code_review = FactoryGirl.create(:code_review)
     submission = FactoryGirl.create(:submission, code_review: code_review)
-    code_review.destroy
-    expect(code_review.errors.full_messages.first).to eq 'Cannot delete a code review with existing submissions.'
+    expect(code_review.destroy).to be false
   end
 
   describe 'total_points_available' do

@@ -43,10 +43,7 @@ class CodeReview < ActiveRecord::Base
 private
 
   def check_for_submissions
-    if submissions.any?
-      errors.add(:base, 'Cannot delete a code review with existing submissions.')
-      false
-    end
+    false if submissions.any?
   end
 
   def set_number

@@ -47,6 +47,7 @@ class CodeReviewsController < ApplicationController
     else
       @code_review = CodeReview.find(params[:id])
       @submission = @code_review.submission_for(current_student) || Submission.new(code_review: @code_review)
+      flash.now[:alert] = 'Cannot delete a code review with existing submissions.'
       render 'show'
     end
   end
